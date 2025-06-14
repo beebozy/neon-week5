@@ -4,6 +4,7 @@ Here's a solid `README.md` tailored to your **RaydiumStakingVault** project, bas
 
 # 🧱 RaydiumStakingVault
 
+The contract can be found in **Staking.sol**
 **RaydiumStakingVault** is a Solidity smart contract that enables users to stake liquidity pool (LP) tokens and manage their rewards on the Solana blockchain via Neon EVM. It interacts with the Raydium AMM through composable Solana instructions, allowing users to deposit tokens, mint LP shares, and withdraw liquidity in a decentralized way.
 
 ---
@@ -22,13 +23,21 @@ Here's a solid `README.md` tailored to your **RaydiumStakingVault** project, bas
 
 ## ⚙️ Architecture Overview
 
+** The two files created are the staking.sol and staking.test.sol**
+
 
   A[User Wallet] -->|ERC20ForSPL.transferFrom| B[RaydiumStakingVault]
+  
   B -->|transferSolana| C[Solana Associated Token Account (ATA)]
+  
   B -->|addLiquidityInstruction| D[Raydium AMM]
+  
   B -->|withdrawLiquidityInstruction| D
+  
   B -->|calculateShares| E[Vault State]
+  
   E -->|Minted Shares| F[User]
+  
   F -->|Withdraw Request| B
 ```
 
@@ -41,14 +50,18 @@ We use Hardhat + Mocha + Chai to run tests on Neon EVM + Solana (via the `@solan
 * Deploy `RaydiumStakingVault`
 * Attach `ERC20ForSPL` interface to `wSOL`
 * Setup ATA accounts and SPL tokens
+
 * Deposit → Check share minting
+
 * Withdraw → Check share burning
+
 * Verify utility calls like `calculateShares()` and `getTotalLpInPool()`
 
 ---
 
 ## 🔁 Core Flow
 
+**These are the methods the contract are being called **
 ### 1. **Deposit Tokens**
 
 ```solidity
