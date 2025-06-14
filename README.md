@@ -88,12 +88,12 @@ RaydiumStakingVault.withdraw(poolId, userShares, slippage);
 
 ```
 contracts/
-  ├── RaydiumStakingVault.sol        // Staking logic
+  ├── staking.sol        // Staking logic
   └── composability/                 // Raydium & ATA libraries
 test/
-  └── raydiumStakingVault.test.js   // Test cases
+  └── staking.test.js   // Test cases
 utils/
-  └── setupSPLTokens.js, etc.       // Utility functions for tests
+  └──      // Contains helper functions
 ```
 
 ---
@@ -114,7 +114,7 @@ const poolId = ethers.zeroPadValue(
 ## 💡 Requirements
 
 *solidity 
-* [Neon EVM](https://neonlabs.org/)
+
 * Solana CLI (for devnet testing)
 * A funded deployer account (both SOL and ERC20 SPL tokens)
 
@@ -124,7 +124,7 @@ const poolId = ethers.zeroPadValue(
 
 ```bash
 git clone 
-cd raydium-vault
+
 npm install
 ```
 
